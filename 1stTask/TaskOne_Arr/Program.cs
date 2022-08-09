@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace TaskOne_Arr
 {
+    //this Used to test Arrays
     class Program
     {
          static int[] counter ;
