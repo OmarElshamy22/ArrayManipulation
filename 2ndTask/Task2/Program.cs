@@ -26,35 +26,99 @@ namespace Task2
 
             return isArrayEqual;
         }
+        public static bool Checkint(String S)
+        {
+       
+            int numericValue;
 
+    
+                bool i2 = int.TryParse(S, out numericValue);
+            
+            
+
+            return i2;
+
+        }
         static void Main(string[] args)
         {
 
             int[] Arr1;
             int[] Arr2;
             int[] Arr3= {};
+            int number1=0;
+            int number2=0;
+            String s;
+            while (true)
+            {
 
-             
             Console.WriteLine("Please enter how many numberes do you want to enter in the first array");
-            int number1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Please enter how many numberes do you want to enter in the Secound one");
-            int number2 = int.Parse(Console.ReadLine());
+            s = Console.ReadLine();
+            if (Checkint(s))
+            {
+             number1 = int.Parse(s);
+                    break;
+            }
+            else
+            {
+                Console.WriteLine("Please enter number not charater");
+            }
+            }
+            while (true)
+            {
+                Console.WriteLine("Please enter how many numberes do you want to enter in the Secound one");
+                s = Console.ReadLine();
+                if (Checkint(s))
+                {
+                    number2 = int.Parse(s);
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter number not charater");
+                }
+            }
             Arr1 = new int[number1];
             Arr2 = new int[number2];
-            
-            
-            for (int i = 0; i < Arr1.Length; i++)
+            int i = 0;
+            while (i < Arr1.Length)
             {
                 Console.WriteLine("enter the " + i + " index of the first array");
-                Arr1[i] = int.Parse(Console.ReadLine());
+                s = Console.ReadLine();
+                if (Checkint(s))
+                {
+
+                    Arr1[i] = int.Parse(s);
+                    i = i + 1;
+                }
+                else
+                {
+
+                    Console.WriteLine("Please enter number not charater");
+                }
+
+            }
+            i = 0;
+            while (i < Arr2.Length)
+            {
+
+                Console.WriteLine("enter the " + i + " index of the secound array");
+                s = Console.ReadLine();
+                if (Checkint(s))
+                {
+
+                    Arr2[i] = int.Parse(s);
+                    i = i + 1;
+                }
+                else
+                {
+
+                    Console.WriteLine("Please enter number not charater");
+                }
+
             }
 
-            for (int i = 0; i < Arr2.Length; i++)
-            {
-                Console.WriteLine("enter the " + i + " index of the secound array");
-                Arr2[i] = int.Parse(Console.ReadLine());
-            }
-            for (int i = 0; i < Arr1.Length; i++)
+            
+            for ( i = 0; i < Arr1.Length; i++)
             {
                 if (!Check(Arr1[i], Arr2))
                 {
@@ -64,7 +128,7 @@ namespace Task2
 
                 }
             }
-            for (int i = 0; i < Arr2.Length; i++)
+            for ( i = 0; i < Arr2.Length; i++)
             {
                 if (!Check(Arr2[i], Arr1))
                 {
@@ -76,7 +140,7 @@ namespace Task2
 
             }
             Console.WriteLine("YOUR REQUEST");
-            for (int i = 0; i < Arr3.Length; i++)
+            for ( i = 0; i < Arr3.Length; i++)
             {
                 Console.WriteLine(Arr3[i]);
             }
